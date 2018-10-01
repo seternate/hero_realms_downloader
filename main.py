@@ -14,4 +14,3 @@ for image in soup.find_all('img'):
             file.write(r.content)
 
 print("awd")
-print("hallo")
