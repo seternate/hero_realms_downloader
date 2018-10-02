@@ -37,6 +37,9 @@ while link.find('img').get('src').rsplit('/', 1)[-1].split('-')[0] == 'BAS':
     images = link.find_all('img')
     for index in range(len(images)):
         FILE.write(images[index].get('src').rsplit('/', 1)[-1])
+        r = requests.get(images[index].get('src'), stream=True)
+        with open('Cards/' + images[index].get('src').rsplit('/', 1)[-1], 'wb') as f:
+            f.write(r.content)
         if index is not len(images)-1:
             FILE.write(',')
     FILE.write(';')
