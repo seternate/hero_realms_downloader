@@ -22,16 +22,6 @@ for breaks in soup.find_all('hr'):
     breaks.extract()
 
 
-"""
-for image in soup.find_all('img'):
-    r = requests.get(image.get('src'), stream=True)
-    path = '.../Cards/' + image.get('src').rsplit('/', 1)[-1]
-    if r.status_code == 200:
-        with open(path, 'wb') as file:
-            file.write(r.content)
-"""
-
-
 link = soup.find('td', class_='column-1')
 while link.find('img').get('src').rsplit('/', 1)[-1].split('-')[0] == 'BAS':
     images = link.find_all('img')
