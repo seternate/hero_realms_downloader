@@ -24,7 +24,15 @@ for entry in data.split('\n'):
             'role': items[8],
             'setname': items[9],
             'setqty': items[10]}
-    matrix.append(items)
-
-
+    matrix.append(card)
 print(matrix)
+
+
+FILE = open('Cards/BAS-EN-001-arkus-imperial-dragon.jpg', 'rb')
+pic = FILE.read()
+FILE.close()
+
+FILE = open('game.dat', 'wb')
+FILE.write(bytes(data, encoding='utf-8'))
+FILE.write(pic)
+FILE.close()
