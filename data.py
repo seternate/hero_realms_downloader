@@ -12,7 +12,6 @@ FILE.close()
 matrix = []
 for idx, entry in enumerate(data.split('\n')):
     items = entry.split(';')
-    card = {'image': items[0]}
     items[0] = items[0].split(',')
     items[2] = items[2].split('◆')
     items[6] = items[6].split()
@@ -60,6 +59,7 @@ for element in matrix:
         cost.text = element['cost']
     if len(element['defense']) is 1:
         defense = Et.SubElement(card, 'defense', guard='0')
+        defense.text = element['defense'][0]
     else:
         defense = Et.SubElement(card, 'defense', guard='1')
         defense.text = element['defense'][1]
